@@ -62,7 +62,7 @@
   tasks:
     - name: Print url
       ansible.builtin.debug:
-        msg: x - {{ x }} , y - {{ y[0] }}, z - {{ z["sample"."domain"] }}
+        msg: x - {{ x }} , y - {{ y[0] }}, z - {{ z["url"].["domain"] }}
 #
 
 # The same variable can be declared from command line using -e option
