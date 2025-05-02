@@ -1,27 +1,37 @@
 # In Ansible variables can be declared in multiple places.
 # Ansible variable can be accessed with {{ }} same like ${} in shell
 
-- name: Play level variables
+#- name: Play level variables
+#  hosts: localhost
+#  connection: local
+#  vars:
+#    url: play.example.com
+#  tasks:
+#    - name: Print url
+#      ansible.builtin.debug:
+#        msg: url - {{ url }}
+
+- name: play level variable
   hosts: localhost
   connection: local
   vars:
-    url: play.example.com
+    url: play.apps11.shop
   tasks:
-    - name: Print url
+    - name: print url
       ansible.builtin.debug:
         msg: url - {{ url }}
 
 # Since the variable is declared on play level , then all the tasks can access that variable
 
-- name: Task level variable
-  hosts: localhost
-  connection: local
-  tasks:
-    - name: Print url
-      ansible.builtin.debug:
-        msg: url - {{ url }}
-      vars:
-        url: tasks.example.com
+#- name: Task level variable
+#  hosts: localhost
+#  connection: local
+#  tasks:
+#    - name: Print url
+#      ansible.builtin.debug:
+#        msg: url - {{ url }}
+#      vars:
+#        url: tasks.example.com
 
 # Since the variable is declared at task level, then the only one task can access that variable.
 
@@ -30,39 +40,39 @@
 # 2. Number
 # 3. Boolean ( yes/no true/false)
 
-- name: Variable Data types
-  hosts: localhost
-  connection: local
-  vars:
-    x: abc
-    y: 100 # we can also use float values like 1.20001
-    z: true
-  tasks:
-    - name: Print url
-      ansible.builtin.debug:
-        msg: x - {{ x }} , y - {{ y }}, z - {{ z }}
+#- name: Variable Data types
+#  hosts: localhost
+#  connection: local
+#  vars:
+#    x: abc
+#    y: 100 # we can also use float values like 1.20001
+#    z: true
+#  tasks:
+#    - name: Print url
+#      ansible.builtin.debug:
+#        msg: x - {{ x }} , y - {{ y }}, z - {{ z }}
 
 ## Variable Declaration Types
 # 1. Normal
 # 2. List
 # 3. Map
 
-- name: Variable Declaration types
-  hosts: localhost
-  connection: local
-  vars:
-    x: abc
-    y:
-      - 100
-      - 200
-    z:
-      url: sample
-      domain: example.com
-  tasks:
-    - name: Print url
-      ansible.builtin.debug:
-        msg: x - {{ x }} , y - {{ y[0] }}, z - {{ z["domain"] }}
-
+#- name: Variable Declaration types
+#  hosts: localhost
+#  connection: local
+#  vars:
+#    x: abc
+#    y:
+#      - 100
+#      - 200
+#    z:
+#      url: sample
+#      domain: example.com
+#  tasks:
+#    - name: Print url
+#      ansible.builtin.debug:
+#        msg: x - {{ x }} , y - {{ y[0] }}, z - {{ z["domain"] }}
+#
 
 # The same variable can be declared from command line using -e option
 # Now the variable precedence will come into picture
