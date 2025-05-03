@@ -25,6 +25,7 @@
       when: countx | int > 0
       # | int is making sure it is a number
 
+# ansible-playbook 04-conditions.yml -e vegetables=no -e fruits=yes countx=2
 
 
 
