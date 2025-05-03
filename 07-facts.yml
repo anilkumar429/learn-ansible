@@ -9,3 +9,24 @@
     - name: Print IP
       ansible.builtin.debug:
         msg: "{{ ansible_default_ipv4.address }}"
+
+
+#In Ansible, facts are system properties or environment information automatically gathered about managed nodes (hosts) before playbooks or tasks run. These facts provide details such as:
+#
+#  OS type and version
+#
+#  IP addresses
+#
+#  Hostname
+#
+#  Memory and disk space
+#
+#  Network interfaces
+#
+#  CPU information
+#
+#  Python version
+#
+#az vm list-ip-addresses -o yaml | grep privateIpAddresses -A 1 | grep -v privateIpAddresses | grep -v '\-\-' | awk '{print $2}' >/tmp/1
+#
+#ansible -i /tmp/1 all -e ansible_user=azuser -e ansible_password=Devops@12345 -m ping
