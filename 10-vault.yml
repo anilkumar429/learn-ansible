@@ -13,3 +13,6 @@
     - name: Print Password
       ansible.builtin.debug:
         msg: " {{ my_password }}"
+
+# ansible-vault encrypt_string abc@123
+# ansible-playbook 10-vault.yml --ask-vault-pass
