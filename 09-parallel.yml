@@ -3,3 +3,13 @@
   tasks:
     - name: sleep
       ansible.builtin.shell: sleep 30
+
+
+#az vm list-ip-addresses -o yaml | grep privateIpAddresses -A 1 | grep -v privateIpAddresses | grep -v '\-\-' | awk '{print $2}' >/tmp/1
+#
+#ansible-playbook -i /tmp/1 all -e ansible_user=azuser -e ansible_password=Devops@12345 -m ping
+#ansible-playbook -i /tmp/1 09-parallel.yml ansible_user=azuser -e ansible_password=Devops@12345 -f 20
+
+#bydefault parallel wil manage 5 nodes and change it by using fork -f 20
+
+
